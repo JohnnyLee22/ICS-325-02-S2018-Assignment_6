@@ -28,8 +28,6 @@ if(array_key_exists('FirstName', $_REQUEST) && $_REQUEST['FirstName'] != '') {
 // If $_REQUEST['FavoriteNumbers'] exists, validate it so it can be used with the explode function.
 if(array_key_exists('FavoriteNumbers', $_REQUEST)) {
     // The validation code below uses regular expressions, also known as regexes.
-    // I don't expect you to know to use them for the final or homework, but it's good to know they exist.
-
     // We want a string that contains only numbers and commas.  Delete everything else.
     $favorite_numbers_input = preg_replace("/[^0-9,]/", "", $_REQUEST['FavoriteNumbers']);
     // We may have more than one comma in a row after stripping out all everything besides numbers and commas.

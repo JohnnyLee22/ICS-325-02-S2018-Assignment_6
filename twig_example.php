@@ -1,7 +1,7 @@
 <?php
 
 // Load the twig library using composer's autoload feature.
-//   See Chapter 16 for an introduction to composer.
+//  We'll go over composer in a future class.
 require_once './vendor/autoload.php';
 
 // Tell twig to use the current directory as the source for templates files.
