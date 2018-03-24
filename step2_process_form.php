@@ -20,14 +20,19 @@ if(array_key_exists('FirstName', $_REQUEST) && $_REQUEST['FirstName'] != '') {
 }
 
 // If $_REQUEST['LastName'] exists and isn't an empty string, use it instead of the default value.
-// Your code here.
+if(array_key_exists('LastName', $_REQUEST) && $_REQUEST['LastName'] != '') {
+    $last_name = $_REQUEST['LastName'];
+}
 
 // If $_REQUEST['Age'] exists and isn't an empty string, use it instead of the default value.
-// Your code here.
+if(array_key_exists('Age', $_REQUEST) && $_REQUEST['Age'] != '') {
+    $age = $_REQUEST['Age'];
+}
 
 // If $_REQUEST['FavoriteNumbers'] exists, validate it so it can be used with the explode function.
 if(array_key_exists('FavoriteNumbers', $_REQUEST)) {
     // The validation code below uses regular expressions, also known as regexes.
+    // I don't expect you to know to use them for the final or homework, but it's good to know they exist.
     // We want a string that contains only numbers and commas.  Delete everything else.
     $favorite_numbers_input = preg_replace("/[^0-9,]/", "", $_REQUEST['FavoriteNumbers']);
     // We may have more than one comma in a row after stripping out all everything besides numbers and commas.
@@ -47,13 +52,11 @@ if(array_key_exists('FavoriteNumbers', $_REQUEST)) {
 $_SESSION['FirstName'] = $first_name;
 
 // Store $last_name to the session.
-// Your code here.
-
+$_SESSION['LastName'] = $last_name;
 // Store $age to the session.
-// Your code here.
-
+$_SESSION['Age'] = $age;
 // Store $favorite_numbers to the session.
-// Your code here.
+$_SESSION['FavoriteNumbers'] = $favorite_numbers;
 
 // Commit the session manually to save it now.
 session_commit();
@@ -70,7 +73,6 @@ First Name: <?php echo $first_name; ?><br/>
 Last Name: <?php echo $last_name; ?><br/>
 Age: <?php echo $age; ?><br/>
 Favorite Numbers: <?php echo implode(', ', $favorite_numbers); ?><br/><br/>
-
 View the stored session data <a href="step3_view_session_data.php">here</a>.<br/>
 Delete the stored session data <a href="delete_session_data.php">here</a>.
 </body>
