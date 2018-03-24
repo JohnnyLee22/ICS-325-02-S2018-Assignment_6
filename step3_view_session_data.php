@@ -42,4 +42,9 @@ $twig = new Twig_Environment($loader);
 //   Your code goes in the array below.  You need to pass all the necessary data to render
 //   the twig template through the array passed to the render method.  The array keys are
 //   are the variables you use to refer to data in the twig template.
-echo $twig->render('step3_view_session_data.twig', array('first_name' => $first_name, /* your code here */ ));
+echo $twig->render('step3_view_session_data.twig', array(
+    'first_name' => $first_name,
+    'last_name' => $last_name,
+    'age' => $age,//));
+    'favorite_numbers' => $favorite_numbers, //implode(', ', $favorite_numbers),
+    'average of favorite numbers' => ''));
