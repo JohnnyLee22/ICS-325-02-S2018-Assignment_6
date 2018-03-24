@@ -10,11 +10,15 @@
 <!-- This example shows you how to do everything using twig: http://twigfiddle.com/pr3mk1 -->
 
 <!-- Your code here: on the next line, add a filter to print first name capitalized -->
-First Name: {{ first_name }}<br/>
-Last Name: <!-- Your code here: prints last name capitalized --><br/>
-Age: <!-- Your code here: prints age --><br/>
-Favorite Numbers: <!-- Your code here: prints numbers separated by commas --><br/>
-Average of Favorite Numbers: <!-- Your code here: prints the average off all the numbers --><br/><br/>
+First Name: {{ first_name | capitalize }}<br/>
+Last Name: {{ last_name | capitalize }}<br/>
+Age: {{ age }}<br/>
+Favorite Numbers: {{ favorite_numbers | join(', ') }}<br/>
+    {% set average = 0%}
+    {% for numbers in favorite_numbers%}
+    {% set average = average + numbers %}
+    {%endfor%}
+Average of Favorite Numbers: {{ average/favorite_numbers | length  }}<br/><br/>
 
 Go back to the input form <a href="step1_form.html">here</a>.<br/>
 Delete the stored session data <a href="delete_session_data.php">here</a>.
